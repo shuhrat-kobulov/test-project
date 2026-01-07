@@ -170,7 +170,7 @@ export const SearchPage = () => {
                 >
                     {/* Header */}
                     <div>
-                        <Title level={2} style={{ marginBottom: '8px' }}>
+                        <Title level={2} style={{ margin: 0 }}>
                             Product Search
                         </Title>
                         <Text type="secondary">
