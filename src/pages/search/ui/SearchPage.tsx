@@ -1,10 +1,10 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { Card, Typography, Alert, Spin, Input, Table, Space } from 'antd';
+import { Alert, Card, Input, Space, Spin, Table, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '@/app/providers/auth';
 import { fetchAllProducts } from '@/shared/api';
-import { searchProducts, getSearchStats } from '@/shared/lib';
+import { getSearchStats, searchProducts } from '@/shared/lib';
 import type { Product, ProductsError } from '@/shared/types';
 
 const { Title, Text } = Typography;
@@ -156,8 +156,8 @@ export const SearchPage = () => {
 
     // Get search statistics
     const searchStats = useMemo(
-        () => getSearchStats(allProducts.length, filteredProducts.length),
-        [allProducts.length, filteredProducts.length]
+        () => getSearchStats(totalCount, filteredProducts.length),
+        [totalCount, filteredProducts.length]
     );
 
     return (
